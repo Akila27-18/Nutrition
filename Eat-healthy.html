@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Eat-healthy</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body
+ {
+    font-family: "Raleway";
+}
+.navbar .logo a{
+    text-decoration: none;
+  
+  }
+.nav-links li a{
+  text-decoration: none;
+  color: #000;
+}
+        .announcement-bar {
+    background: #dfffdc;
+    text-align: center;
+    padding: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    position: sticky;
+  top: 0;
+
+  z-index: 1000;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+    
+  }
+  
+  .navbar .logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #1c9c6f;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+  }
+  
+  .nav-links li {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .nav-links li:hover{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .nav-links .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .hero {
+  background: url('image/hero-eat healthy.png') no-repeat center center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.hero-content h2 {
+  margin-bottom: 10px;
+}
+
+.hero-content button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero-content button:hover {
+  background-color: #45a049;
+}
+
+.info {
+  padding: 40px 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.info h3 {
+  margin-bottom: 20px;
+}
+
+.food-groups {
+  display: grid;
+  grid-template-areas:
+    "fruits grains"
+    "vegetables protein";
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  position: relative;
+}
+
+.group {
+  width: 140px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.fruits {
+  background-color: #ff968a;
+  grid-area: fruits;
+}
+
+.grains {
+  background-color: #ffe39f;
+  grid-area: grains;
+}
+
+.vegetables {
+  background-color: #b3f5a5;
+  grid-area: vegetables;
+}
+
+.protein {
+  background-color: #c8a2f4;
+  grid-area: protein;
+}
+
+.center {
+  width: 90px;
+  height: 90px;
+  background-color: #76a9fa;
+  color: white;
+  font-size: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.personal-goals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.goals-image img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.goals-content {
+  max-width: 400px;
+}
+
+.goals-content h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.goals-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.app-badges {
+  display: flex;
+  gap: 10px;
+}
+
+.badge {
+  height: 40px;
+}
+
+.weekly-recipe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.recipe-content {
+  max-width: 400px;
+}
+
+.recipe-content h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.recipe-content p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.recipe-button {
+  display: inline-block;
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.recipe-button:hover {
+  background-color: #256028;
+}
+
+.recipe-image img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.challenge-banner {
+    
+    position:relative;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: #f7f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .text-content {
+    background-image: url(image/30\ day\ challenge-home\ screen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 20px;
+    padding: 90px 10px 10px 30px;
+    /* flex: 1; */
+    /* max-width: 500px; */
+  }
+  
+  .text-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px;
+    padding: 10px;
+    margin-right: 700px;
+  }
+  
+  .text-content p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 20px;
+    margin-right: 700px;
+  }
+  
+  .download-btn {
+    display: inline-block;
+    background-color: #2d7d46;
+    color: white;
+    margin-right: 700px;
+    padding: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+   
+      color:darkblue;
+      margin: 5px 0;
+      padding: 10px;
+      cursor: pointer;
+    }
+    li:hover {
+      /* background-color:black; */
+      color:darkgreen;
+    }
+
+  .footer {
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    padding: 40px 60px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .footer-section {
+    flex: 1 1 300px;
+  }
+  
+  .footer-section h2,
+  .footer-section h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section a,
+  .footer-section p {
+    font-size: 17px;
+    font-weight: 200;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+  }
+  
+  .social-icons i {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons i:hover {
+    color: #1c9c6f;
+  }
+  
+  
+    </style>
+</head>
+<body>
+    <body>
+        <!-- Announcement bar -->
+        <div class="announcement-bar">ONE STOP FOR NUTRITION PLAN AND PERSONALIZED DIET CHART !!!</div>
+      
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
+          <ul class="nav-links">
+            
+            <li class="active"><a href="Eat-healthy.html">Eat Healthy</a></li>
+            <li><a href="Resources.html">Resources</a></li>
+            <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
+          </ul>
+        </nav>
+        <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Are you making every bite count?</h2>
+      <p>Take the EAT HEALTHY + to find out!</p>
+      <button id="startQuizBtn">START QUIZ</button>
+      <div id="quizContainer"></div>
+    </div>
+  </section>
+
+  <!-- Information Section -->
+  <section class="info">
+    <h3>EAT HEALTHY + provides you curated details about the followings</h3>
+    <p>
+      People all over the country are finding simple, practical ways to eat healthier. 
+      Watch their stories to see how they make healthy choices that work for their budget, 
+      preferences, and dietary needs (and how you can too).
+    </p>
+  <section class="food-groups">
+    <div class="group fruits">FRUITS</div>
+    <div class="group grains">GRAINS</div>
+    <div class="group center">DAIRY</div>
+    <div class="group vegetables">VEGETABLES</div>
+    <div class="group protein">PROTEIN</div>
+  </section>
+
+  <section class="personal-goals">
+    <div class="goals-image">
+      <img src="image/mobile app-eat healthy.png" alt="Mobile App Screenshot">
+    </div>
+    <div class="goals-content">
+      <h3>Set Personal Goals for healthy eating</h3>
+      <p>
+        Get started with Start Simple with MyPlate!<br>
+        Meet healthy eating goals one at a time! Use the Start Simple with MyPlate app to pick simple daily food goals,
+        see real-time progress, and earn badges along the way.
+      </p>
+      <div class="app-badges">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="badge">
+        <img src="image/app store-eat healthy.png" alt="App Store" class="badge">
+      </div>
+    </div>
+  </section>
+
+  <section class="weekly-recipe">
+    <div class="recipe-content">
+      <h3>Find easy, low-cost recipes</h3>
+      <p>
+        View delicious recipes in our very own Weekly Updates!<br>
+        Ingredients and steps to be followed are given to use what you already have
+        or browse by category to find something new. Follow the recipe and enjoy, and more!
+      </p>
+      <a href="#" class="recipe-button">VIEW WEEKLY RECIPE</a>
+    </div>
+    <div class="recipe-image">
+      <img src="image/easy recipe-eat healthy.png" alt="Tablet with recipe">
+    </div>
+  </section>
+  <script src="script.js"></script>
+  
+  <section class="challenge-banner">
+    <div class="text-content">
+      <h2>JOIN THE 30-DAY CHALLENGE</h2>
+      <p>Our 30-Day Challenge is a fun and effective way to kick-start your journey towards better health. This program is designed to help you build lasting habits and see noticeable improvements in just one month!</p>
+      <a href="payment.html" class="download-btn">DOWNLOAD THE CHALLENGE PDF</a>
+    </div>
+  </section>
+
+        <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h2>EAT HEALTHY +</h2>
+        <p>Eat Healthy + is a comprehensive platform, which gives an essential guide to healthy eating</p>
+        <a href="terms.html">Terms & conditions</a><br>
+        <a href="privacy.html">Privacy policy</a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links:</h3>
+        <a href="aboutus.html">About us</a><br>
+        <a href="advertisingpolicy.html">Advertising Policy</a>
+        <h3>Contact us:</h3>
+        <p>Phone: +91 123457890</p>
+        <p>Email: info@eathealthy.com</p>
+      </div>
+
+      <div class="footer-section">
+        <a href="Nutrition-guidelines.html">Nutrition Guidelines</a><br>
+        <a href="news.html">News</a><br>
+        <a href="diversity.html">Diversity & Inclusion</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© Eat Healthy +. All Right Reserved</p>
+      <div class="social-icons">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-tiktok"></i>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
