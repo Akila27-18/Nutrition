@@ -84,44 +84,37 @@ function downloadPDF() {
 }
 
 
-  // Select the input fields and the button
-  const fullNameInput = document.getElementById('fullName');
-  const emailInput = document.getElementById('email');
+window.addEventListener('DOMContentLoaded', function () {
   const continueButton = document.getElementById('continueButton');
 
-  // Function to save data to localStorage
-  function saveToLocalStorage() {
-    const userData = {
-      fullName: fullNameInput.value,
-      email: emailInput.value
-    };
+  continueButton.addEventListener('click', function (e) {
+    e.preventDefault(); // prevent form submission if inside a form
 
-    // Store the user data in localStorage
-    localStorage.setItem('userData', JSON.stringify(userData));
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
 
-    // Optionally, show a confirmation message or redirect
-    alert('Data saved successfully!');
-    // You can redirect to another page or close the modal
-    // window.location.href = "anotherPage.html";
-  }
-
-  // Event listener for the continue button
-  continueButton.addEventListener('click', function() {
-    // Check if both fields have values
-    if (fullNameInput.value && emailInput.value) {
-      alert('Done with your Registration')
-      saveToLocalStorage();
-      
+    if (fullName && email) {
+      localStorage.setItem('fullName', fullName);
+      localStorage.setItem('email', email);
+      alert('Information saved locally!');
     } else {
-      alert('Please fill in both fields!');
+      alert('Please fill in both fields.');
     }
   });
+});
 
-  // Optionally, you can pre-fill the form if data already exists in localStorage
-  window.onload = function() {
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
-    if (storedUserData) {
-      fullNameInput.value = storedUserData.fullName || '';
-      emailInput.value = storedUserData.email || '';
-    }
-  };
+  
+
+  // You can enhance dropdown interactivity later
+document.querySelector('.dropdown-btn').addEventListener('click', () => {
+  alert("Dropdown content can be added here.");
+});
+function toggleDropdown() {
+  const table = document.getElementById("fruitTable");
+  table.classList.toggle("active");
+}
+
+// You can add interactivity here, for now it's just a placeholder.
+document.getElementById('fruitTableSelect').addEventListener('change', function() {
+  alert(`You selected: ${this.value}`);
+});
