@@ -25,7 +25,10 @@ body
   z-index: 1000;
   
 }
-
+.navbar .logo a{
+  text-decoration: none;
+  color: #1c9c6f;
+}
 .navbar .logo {
   font-weight: bold;
   font-size: 20px;
