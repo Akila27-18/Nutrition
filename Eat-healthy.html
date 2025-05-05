@@ -15,6 +15,7 @@
         body
  {
     font-family: "Raleway";
+    font-weight: bold;
 }
 .navbar .logo a{
     text-decoration: none;
@@ -167,7 +168,7 @@
   height: 90px;
   background-color: #76a9fa;
   color: white;
-  font-size: 14px;
+  font-size: 20px;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -333,12 +334,16 @@
     margin-top: 50px;
     border-top: 1px solid #eee;
     padding: 40px 60px;
+    font-weight: bold;
+    font-size: 20px;
   }
   
   .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 20px;
     gap: 30px;
   }
   
@@ -353,8 +358,8 @@
   
   .footer-section a,
   .footer-section p {
-    font-size: 17px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: bold;
     color: #000;
     text-decoration: none;
     margin-bottom: 8px;
@@ -372,7 +377,7 @@
   }
   
   .footer-bottom p {
-    font-size: 14px;
+    font-size: 20px;
   }
   
   .social-icons {
@@ -389,19 +394,169 @@
   .social-icons i:hover {
     color: #1c9c6f;
   }
+  /* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
   
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .hero {
+    height: 300px;
+  }
+
+  .hero-content {
+    padding: 10px 20px;
+  }
+
+  .food-groups {
+    grid-template-areas:
+      "fruits"
+      "grains"
+      "vegetables"
+      "protein";
+  }
+
+  .group {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .personal-goals,
+  .weekly-recipe {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .goals-image img,
+  .recipe-image img {
+    width: 90%;
+  }
+
+  .challenge-banner .text-content {
+    padding: 20px;
+    margin: 10px;
+    margin-right: 0 !important;
+    height: auto;
+    background-size: cover;
+  }
+
+  .text-content h2,
+  .text-content p,
+  .download-btn {
+    margin-right: 0 !important;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* Tablet Devices (481px to 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .food-groups {
+    grid-template-areas:
+      "fruits grains"
+      "vegetables protein";
+  }
+
+  .group {
+    width: 120px;
+  }
+
+  .personal-goals,
+  .weekly-recipe {
+    flex-direction: column;
+  }
+
+  .challenge-banner .text-content {
+    padding: 30px;
+    margin: 15px;
+    margin-right: 0 !important;
+    height: auto;
+    background-size: cover;
+  }
+
+  .text-content h2,
+  .text-content p,
+  .download-btn {
+    margin-right: 0 !important;
+  }
+}
+
+/* Large Screens (769px and above) */
+@media (min-width: 769px) {
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .personal-goals,
+  .weekly-recipe {
+    flex-direction: row;
+  }
+
+  .footer-container {
+    flex-direction: row;
+  }
+}
+
   
     </style>
 </head>
 <body>
-    <body>
         <!-- Announcement bar -->
         <div class="announcement-bar">ONE STOP FOR NUTRITION PLAN AND PERSONALIZED DIET CHART !!!</div>
       
         <!-- Navbar -->
         <nav class="navbar">
           <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-          <ul class="nav-links">
+          <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
             
             <li class="active"><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
@@ -466,7 +621,86 @@
       <img src="image/easy recipe-eat healthy.png" alt="Tablet with recipe">
     </div>
   </section>
-  <script src="script.js"></script>
+  <script>
+  document.getElementById('startQuizBtn').addEventListener('click', function() {
+    fetch('https://opentdb.com/api.php?amount=5&type=multiple') // Example public Quiz API
+      .then(response => response.json())
+      .then(data => {
+        const questions = data.results;
+        const quizContainer = document.getElementById('quizContainer');
+        quizContainer.innerHTML = ''; // Clear previous content
+  
+        questions.forEach((q, index) => {
+          const questionElement = document.createElement('div');
+          questionElement.innerHTML = `
+            <h3>Q${index + 1}: ${q.question}</h3>
+            <ul>
+              ${[...q.incorrect_answers, q.correct_answer].sort(() => Math.random() - 0.5).map(answer => `
+                <li data-answer="${answer}" class="answer">${answer}</li>
+              `).join('')}
+            </ul>
+            <hr>
+          `;
+          quizContainer.appendChild(questionElement);
+        });
+  
+        // Add click event listener for answers
+        document.querySelectorAll('.answer').forEach(answer => {
+          answer.addEventListener('click', function() {
+            const selectedAnswer = this.getAttribute('data-answer');
+            const correctAnswer = questions[this.parentNode.parentNode.index].correct_answer;
+  
+            if (selectedAnswer === correctAnswer) {
+              alert('Correct!');
+            } else {
+              alert('Wrong! Try again.');
+            }
+          });
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching quiz:', error);
+      });
+  });
+  
+  function downloadPDF() {
+  alert('Download functionality coming soon!');
+}
+questions.forEach((q, index) => {
+  const questionElement = document.createElement('div');
+  questionElement.innerHTML = `
+    <h3>Q${index + 1}: ${q.question}</h3>
+    <ul>
+      ${[...q.incorrect_answers, q.correct_answer].sort(() => Math.random() - 0.5).map(answer => `
+        <li data-answer="${answer}" data-index="${index}" class="answer">${answer}</li>
+      `).join('')}
+    </ul>
+    <hr>
+  `;
+  quizContainer.appendChild(questionElement);
+});
+
+// Fix the event handler
+document.querySelectorAll('.answer').forEach(answer => {
+  answer.addEventListener('click', function () {
+    const selectedAnswer = this.getAttribute('data-answer');
+    const questionIndex = parseInt(this.getAttribute('data-index'));
+    const correctAnswer = questions[questionIndex].correct_answer;
+
+    if (selectedAnswer === correctAnswer) {
+      alert('Correct!');
+    } else {
+      alert('Wrong! Try again.');
+    }
+  });
+});
+
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.getElementById("nav-links").classList.toggle("active");
+    });
+
+
+  </script>
   
   <section class="challenge-banner">
     <div class="text-content">

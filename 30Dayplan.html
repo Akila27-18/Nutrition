@@ -242,7 +242,11 @@
     margin-bottom: 8px;
     display: block;
   }
-  
+  .day:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
   .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -271,19 +275,136 @@
   .social-icons i:hover {
     color: #1c9c6f;
   }
+  /* Mobile-first adjustments */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.navbar {
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.nav-links {
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.challenge-rules {
+  grid-template-columns: 1fr;
+}
+
+.meal-plan {
+  flex-direction: column;
+  align-items: center;
+}
+
+.day, .notes {
+  width: 90%;
+  max-width: 500px;
+}
+
+/* Calendar grid on small screens */
+.calendar-grid {
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* Footer adjustments */
+.footer-container {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-bottom {
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
   
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+ 
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .challenge-rules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meal-plan {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .challenge-rules {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .meal-plan {
+    flex-wrap: wrap;
+  }
+
+  .day, .notes {
+    width: 300px;
+  }
+}
+
   
     </style>
 </head>
 <body>
-    <body>
         <!-- Announcement bar -->
         <div class="announcement-bar">ONE STOP FOR NUTRITION PLAN AND PERSONALIZED DIET CHART !!!</div>
       
         <!-- Navbar -->
         <nav class="navbar">
           <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-          <ul class="nav-links">
+
+         <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
             <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
@@ -383,7 +504,11 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+document.getElementById("menu-toggle").addEventListener("click", function () {
+  document.getElementById("nav-links").classList.toggle("active");
+});
+</script>
        
         <!-- Footer -->
   <footer class="footer">
@@ -422,6 +547,31 @@
         <i class="fab fa-tiktok"></i>
       </div>
     </div>
+    <script>
+      // date - 30 day
+document.getElementById('start-date').addEventListener('change', function() {
+  console.log('Start date selected:', this.value);
+});
+
+document.getElementById('end-date').addEventListener('change', function() {
+  console.log('End date selected:', this.value);
+});
+
+document.querySelector('.download-button').addEventListener('click', function() {
+  // Placeholder for download functionality
+  alert('Download initiated!');
+});
+
+// Simple JS: Log dates when selected
+document.getElementById('start-date').addEventListener('change', function() {
+  console.log('Start Date:', this.value);
+});
+
+document.getElementById('end-date').addEventListener('change', function() {
+  console.log('End Date:', this.value);
+});
+
+    </script>
   </footer>
 </body>
 </html>

@@ -8,13 +8,14 @@
    
     <title>Diversity</title>
     <style>
-        *{
+            *{
             margin: 0;
             padding: 0;
         }
         body
  {
     font-family: "Raleway";
+    font-weight: bold;
 }
 .navbar .logo a{
     text-decoration: none;
@@ -77,18 +78,18 @@
   .footer {
     margin-top: 50px;
     border-top: 1px solid #eee;
-    padding: 40px 60px;
+    padding: 40px;
   }
   
   .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
   }
   
   .footer-section {
-    flex: 1 1 300px;
+    flex: 1 1 20px;
   }
   
   .footer-section h2,
@@ -98,8 +99,8 @@
   
   .footer-section a,
   .footer-section p {
-    font-size: 17px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: bold;
     color: #000;
     text-decoration: none;
     margin-bottom: 8px;
@@ -138,7 +139,98 @@
     font-size: 20px;
     padding: 100px;
     margin: 100px;
+
   }
+  /* Mobile devices (up to 600px) */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .policy {
+    padding: 20px;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* Tablets (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+
+  .nav-links li {
+    font-size: 18px;
+  }
+
+  .policy {
+    padding: 40px;
+    margin: 20px;
+    font-size: 18px;
+  }
+
+  .footer-section p, .footer-section a {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 20px 50px;
+  }
+
+  .nav-links li {
+    font-size: 20px;
+  }
+
+  .policy {
+    padding: 100px;
+    margin: 100px;
+    font-size: 20px;
+  }
+}
   
     </style>
 </head>
@@ -150,7 +242,11 @@
         <!-- Navbar -->
         <nav class="navbar">
           <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-          <ul class="nav-links">
+         <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
            
             <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
@@ -162,45 +258,62 @@
             <h2>Diversity and Inclusion</h2>
             <br>
             <h3>
-                Introduction</h3>
-                <br>
-            <p>The British Nutrition Foundation (BNF) is a registered charity (charity number 251681, Scotland SC040061) which has the following objects:
-            </p>
-            <p>⚫ to advance the education of the public and those involved in the training and education of others, in nutrition, and
-            </p>
-            <p>⚫ to advance the study of and research into nutrition for the public benefit, and to disseminate and publish the useful results of such research.
-            </p>
-            <br>
-            <h3>Vision</h3>
-            <br>
-            <p>We want a future where everyone has a healthy, sustainable diet.
-            </p>
-            <p>The barriers to this are complex; the affordability of healthy, sustainable food; a food environment that fails to promote healthier, more sustainable options, and poor food literacy particularly amongst the most vulnerable. As a charity, we will focus on where the need is greatest.
-                Values.</p>
-                <p>
-                    Purpose We are focused on delivering our mission and constantly aiming to learn and improve.
-            
-                </p>
-                <p>Integrity We are science-led and authentic in our commitment to improve health and wellbeing. We are honest and transparent about our work and how it is funded.
-                </p>
-            <p>
-                Confidence We aspire to make our voice heard in order to make a difference. We respond to the challenges that get in the way of everyone being able to eat healthily and sustainably.
-                Connection We work collaboratively with a range of stakeholders to deliver our charitable aims and amplify our impact.
-                Openness We are welcoming and want everybody to feel valued and supported. We communicate honestly and are open to criticism.
-                Protecting our independence
-            </p>
-            <p>
-                The Board of Trustees oversees the Foundation and ensures not only that the charity delivers against its charitable aims but that it is impartial, transparent and acts with integrity.
-            As an independent organisation, a majority of the members of the Board of Trustees, Advisory Committee and Scientific Committee may not have any personal financial interest in the commercial food industry. Such members, who are drawn from diverse areas of public life (for example, from the academic scientific community, education, health, communication, HR and finance) are known as the 'independent trustees or members. Board decisions may be taken only when supported by a majority of the Foundation's independent trustees.
-            All Board and Committee members and members of the senior leadership team are required to sign a declaration of interests which is updated annually. Declarations of interest are taken at every Board and Committee meeting.
-            BNF's reputation, credibility and charitable status depend upon the absolute impartiality of the authoritative and evidence-based information it produces and disseminates. In every activity, BNF will strive to ensure that we present best evidence and, wherever possible, the strength of this evidence will be communicated to the target audience.
-            The Foundation's journal Nutrition Bulletin is a peer-reviewed publication with an international Editorial Advisory Board.
-            Our core purpose is to make nutrition science accessible, working with the public and with stakeholders in academia, education, the food sector and others, to deliver content and programmes of work that engage a range of audiences.
-                
-            </p>
-            <br>
+              Introduction</h3>
+              <br>
+          <p>The British Nutrition Foundation (BNF) is a registered charity (charity number 251681, Scotland SC040061) which has the following objects:
+          </p>
+          <br>
+          <p>⚫ to advance the education of the public and those involved in the training and education of others, in nutrition, and
+          </p>
+          <br>
+          <p>⚫ to advance the study of and research into nutrition for the public benefit, and to disseminate and publish the useful results of such research.
+          </p>
+          <br>
+          <br>
+          <h3>Vision</h3>
+          <br>
+          <p>We want a future where everyone has a healthy, sustainable diet.
+          </p>
+          <br>
+          <p>The barriers to this are complex; the affordability of healthy, sustainable food; a food environment that fails to promote healthier, more sustainable options, and poor food literacy particularly amongst the most vulnerable. As a charity, we will focus on where the need is greatest.
+              Values.</p>
+              <br>
+              <p>
+                  Purpose We are focused on delivering our mission and constantly aiming to learn and improve.
+          
+              </p>
+              <br>
+              <p>Integrity We are science-led and authentic in our commitment to improve health and wellbeing. We are honest and transparent about our work and how it is funded.
+              </p>
+              <br>
+          <p>
+              Confidence We aspire to make our voice heard in order to make a difference. We respond to the challenges that get in the way of everyone being able to eat healthily and sustainably.
+              Connection We work collaboratively with a range of stakeholders to deliver our charitable aims and amplify our impact.
+              Openness We are welcoming and want everybody to feel valued and supported. We communicate honestly and are open to criticism.
+              Protecting our independence
+          </p>
+          <br>
+          <p>
+              The Board of Trustees oversees the Foundation and ensures not only that the charity delivers against its charitable aims but that it is impartial, transparent and acts with integrity.
+          As an independent organisation, a majority of the members of the Board of Trustees, Advisory Committee and Scientific Committee may not have any personal financial interest in the commercial food industry. Such members, who are drawn from diverse areas of public life (for example, from the academic scientific community, education, health, communication, HR and finance) are known as the 'independent trustees or members. Board decisions may be taken only when supported by a majority of the Foundation's independent trustees.
+          <br>
+          <br>
+
+          All Board and Committee members and members of the senior leadership team are required to sign a declaration of interests which is updated annually. Declarations of interest are taken at every Board and Committee meeting.
+          BNF's reputation, credibility and charitable status depend upon the absolute impartiality of the authoritative and evidence-based information it produces and disseminates. In every activity, BNF will strive to ensure that we present best evidence and, wherever possible, the strength of this evidence will be communicated to the target audience.
+          The Foundation's journal Nutrition Bulletin is a peer-reviewed publication with an international Editorial Advisory Board.
+          Our core purpose is to make nutrition science accessible, working with the public and with stakeholders in academia, education, the food sector and others, to deliver content and programmes of work that engage a range of audiences.
+              
+          </p>
+          <br>
+
 
             </section>
+            <script>
+              document.getElementById("menu-toggle").addEventListener("click", function () {
+                document.getElementById("nav-links").classList.toggle("active");
+              });
+              </script>
         <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">

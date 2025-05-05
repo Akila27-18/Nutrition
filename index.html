@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Home</title>
 </head>
 <body>
@@ -16,12 +17,19 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-    <ul class="nav-links">
+     <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
                  <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
     </ul>
+
   </nav>
+
+  
     <section class="hero">
         <div class="overlay">
           <h2 class="tagline">EAT HEALTHY +</h2>
@@ -107,6 +115,18 @@
    </section> 
  
 
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+  
+      toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
+  </script>
+  
+
 
 
   <!-- Footer -->
@@ -147,6 +167,5 @@
       </div>
     </div>
   </footer>
-  <script src="script.js"></script>
 </body>
 </html>

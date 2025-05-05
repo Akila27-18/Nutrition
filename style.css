@@ -5,6 +5,7 @@
 body
  {
     font-family: "Raleway";
+    font-weight: bolder;
 }
 .announcement-bar {
   background: #dfffdc;
@@ -298,7 +299,7 @@ body
 
 .footer-section p,
 .footer-section a {
-  font-size: 14px;
+  font-size: 20px;
   color: #000;
   text-decoration: none;
   display: block;
@@ -316,7 +317,7 @@ body
 }
 
 .footer-bottom p {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .social-icons {
@@ -415,6 +416,66 @@ body
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
+  }
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Show hamburger icon only on small screens */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .features {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .features .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section,
+  .right-section {
+    flex: 1 1 30%;
+  }
+  .card img{
+    width: 300px;
   }
 }
 

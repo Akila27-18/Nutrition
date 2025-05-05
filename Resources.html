@@ -15,6 +15,7 @@
         body
  {
     font-family: "Raleway";
+    font-weight: bold;
 }
 .navbar .logo a{
     text-decoration: none;
@@ -176,8 +177,8 @@
   
   .footer-section a,
   .footer-section p {
-    font-size: 17px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: bold;
     color: #000;
     text-decoration: none;
     margin-bottom: 8px;
@@ -212,7 +213,109 @@
   .social-icons i:hover {
     color: #1c9c6f;
   }
+  /* Medium Devices (Tablets) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-in .logos {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+/* Small Devices (Phones) */
+@media screen and (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
   
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .blog-section h2 {
+    font-size: 22px;
+  }
+
+  .blog-card h3 {
+    font-size: 16px;
+  }
+
+  .blog-card .desc {
+    font-size: 13px;
+  }
+
+  .featured-in h2 {
+    font-size: 20px;
+  }
+
+  .featured-in .logos {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .footer-section h2, .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    align-items: center;
+  }
+}
+
   
     </style>
 </head>
@@ -224,7 +327,11 @@
         <!-- Navbar -->
         <nav class="navbar">
           <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-          <ul class="nav-links">
+          <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
             <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li class="active"><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
@@ -314,7 +421,11 @@
               <img src="image/care plus logo.png" alt="CarePlus">
             </div>
           </section>
-          
+          <script>
+            document.getElementById("menu-toggle").addEventListener("click", function () {
+              document.getElementById("nav-links").classList.toggle("active");
+            });
+            </script>  
         <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">

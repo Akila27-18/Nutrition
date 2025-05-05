@@ -15,6 +15,7 @@
         body
  {
     font-family: "Raleway";
+    font-weight: bold;
 }
 .navbar .logo a{
     text-decoration: none;
@@ -102,8 +103,8 @@
   
   .footer-section a,
   .footer-section p {
-    font-size: 17px;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: bold;
     color: #000;
     text-decoration: none;
     margin-bottom: 8px;
@@ -138,19 +139,124 @@
   .social-icons i:hover {
     color: #1c9c6f;
   }
+  /* Responsive styles for tablets and smaller */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .terms {
+    padding: 30px 20px;
+    margin: 20px;
+    font-size: 18px;
+  }
+
+  .footer {
+    padding: 30px 20px;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  .announcement-bar {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .nav-links {
+    display: none;
+  }
   
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .nav-links li {
+    font-size: 16px;
+  }
+
+  .terms {
+    padding: 20px 10px;
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  .footer-section h2,
+  .footer-section h3 {
+    font-size: 18px;
+  }
+
+  .footer-section a,
+  .footer-section p {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .social-icons {
+    font-size: 16px;
+  }
+}
+
   
     </style>
 </head>
 <body>
-    <body>
+   
         <!-- Announcement bar -->
         <div class="announcement-bar">ONE STOP FOR NUTRITION PLAN AND PERSONALIZED DIET CHART !!!</div>
       
         <!-- Navbar -->
         <nav class="navbar">
           <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-          <ul class="nav-links">
+          <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
             <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
@@ -197,7 +303,11 @@
        <p>A Charity Registered in Scotland - SC0400651 8980700</p>
        <p>Registered in England as a company limited by guarantee No.8567981</p>
         </section>
-
+        <script>
+          document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("nav-links").classList.toggle("active");
+          });
+          </script>
         <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">

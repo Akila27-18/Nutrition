@@ -9,11 +9,20 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Home</title>
     <style>
+  *{
+            margin: 0;
+            padding: 0;
+        }
+        body
+ {
+    font-family: "Raleway";
+    font-weight: bold;
+}
         .announcement-bar {
   background: #dfffdc;
   text-align: center;
   padding: 6px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 .navbar {
@@ -83,7 +92,7 @@
 
 .footer-section p,
 .footer-section a {
-  font-size: 14px;
+  font-size: 20px;
   color: #000;
   text-decoration: none;
   display: block;
@@ -101,13 +110,13 @@
 }
 
 .footer-bottom p {
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .social-icons {
   display: flex;
   gap: 15px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .social-icons i {
@@ -494,6 +503,57 @@ h1 {
     flex: 1 1 100%;
   }
 }
+@media screen and (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .banner-label {
+    font-size: 12px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .text-section h2 {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .image-section img {
+    max-width: 300px;
+  }
+
+  .dropdown select {
+    font-size: 14px;
+  }
+}
 
     </style>
 </head>
@@ -504,7 +564,11 @@ h1 {
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-    <ul class="nav-links">
+   <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    &#9776; <!-- Unicode for hamburger -->
+  </div>
+    <ul class="nav-links" id="nav-links">
                  <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
@@ -608,7 +672,11 @@ h1 {
     
   
 
-  <script src="script.js"></script>
+    <script>
+      document.getElementById("menu-toggle").addEventListener("click", function () {
+        document.getElementById("nav-links").classList.toggle("active");
+      });
+      </script>
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">

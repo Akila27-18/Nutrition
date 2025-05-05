@@ -69,6 +69,109 @@ h3 {
 .continue-button:hover {
     background-color: #45a049;
 }
+/* Base styles already defined above... */
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+  }
+
+  .feature {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Small screens (phones) */
+@media screen and (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: block;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: block;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+  .modal {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .cta-btn a {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .logo-bar img {
+    max-width: 80px;
+    margin: 5px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+  }
+}
 
     </style>
 </head>
@@ -79,7 +182,11 @@ h3 {
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">EAT HEALTHY +</a></div>
-    <ul class="nav-links">
+ <!-- Hamburger Icon -->
+ <div class="menu-toggle" id="menu-toggle">
+  &#9776; <!-- Unicode for hamburger -->
+</div>
+  <ul class="nav-links" id="nav-links">
             <li><a href="Eat-healthy.html">Eat Healthy</a></li>
             <li><a href="Resources.html">Resources</a></li>
             <li style="color: #1c9c6f;"><a href="meal-plan.html">Meal Plan</a></li>
@@ -103,7 +210,7 @@ h3 {
           </p>
           <button class="cta-btn"><a href="aboutus.html">MORE ABOUT US</a></button>
         </div>
-        
+      
 
     </section>
       <section class="features">  
@@ -176,7 +283,11 @@ h3 {
     </div>
   </div>
    </section> 
- 
+   <script>
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.getElementById("nav-links").classList.toggle("active");
+    });
+    </script>
 
 
 
@@ -218,6 +329,25 @@ h3 {
       </div>
     </div>
   </footer>
-  <script src="script.js"></script>
+ <script>window.addEventListener('DOMContentLoaded', function () {
+  const continueButton = document.getElementById('continueButton');
+
+  continueButton.addEventListener('click', function (e) {
+    e.preventDefault(); // prevent form submission if inside a form
+
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (fullName && email) {
+      localStorage.setItem('fullName', fullName);
+      localStorage.setItem('email', email);
+      alert('Information saved locally!');
+    } else {
+      alert('Please fill in both fields.');
+    }
+  });
+});
+
+</script>
 </body>
 </html>
