@@ -17,6 +17,11 @@
     font-family: "Raleway";
     font-weight: bold;
 }
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 .navbar .logo a{
     text-decoration: none;
     color: #1c9c6f;
@@ -396,9 +401,7 @@
   }
   /* Mobile Devices (up to 480px) */
 @media (max-width: 480px) {
-  .nav-links {
-    display: none;
-  }
+
   
   .nav-links.active {
     display: block;
@@ -622,38 +625,39 @@
     </div>
   </section>
   <script>
-  document.getElementById('startQuizBtn').addEventListener('click', function() {
-    fetch('https://opentdb.com/api.php?amount=5&type=multiple') // Example public Quiz API
+  
+  document.getElementById('startQuizBtn').addEventListener('click', function () {
+    fetch('https://opentdb.com/api.php?amount=5&type=multiple')
       .then(response => response.json())
       .then(data => {
         const questions = data.results;
         const quizContainer = document.getElementById('quizContainer');
-        quizContainer.innerHTML = ''; // Clear previous content
-  
+        quizContainer.innerHTML = '';
+
         questions.forEach((q, index) => {
           const questionElement = document.createElement('div');
           questionElement.innerHTML = `
             <h3>Q${index + 1}: ${q.question}</h3>
             <ul>
               ${[...q.incorrect_answers, q.correct_answer].sort(() => Math.random() - 0.5).map(answer => `
-                <li data-answer="${answer}" class="answer">${answer}</li>
+                <li data-answer="${answer}" data-index="${index}" class="answer">${answer}</li>
               `).join('')}
             </ul>
             <hr>
           `;
           quizContainer.appendChild(questionElement);
         });
-  
-        // Add click event listener for answers
+
         document.querySelectorAll('.answer').forEach(answer => {
-          answer.addEventListener('click', function() {
+          answer.addEventListener('click', function () {
             const selectedAnswer = this.getAttribute('data-answer');
-            const correctAnswer = questions[this.parentNode.parentNode.index].correct_answer;
-  
+            const questionIndex = parseInt(this.getAttribute('data-index'));
+            const correctAnswer = questions[questionIndex].correct_answer;
+
             if (selectedAnswer === correctAnswer) {
               alert('Correct!');
             } else {
-              alert('Wrong! Try again.');
+              alert(`Wrong! Correct answer: ${correctAnswer}`);
             }
           });
         });
@@ -662,6 +666,12 @@
         console.error('Error fetching quiz:', error);
       });
   });
+
+  document.getElementById("menu-toggle").addEventListener("click", function () {
+    document.getElementById("nav-links").classList.toggle("active");
+  });
+
+
   
   function downloadPDF() {
   alert('Download functionality coming soon!');
